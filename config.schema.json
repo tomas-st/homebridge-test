@@ -10,6 +10,12 @@
         "type": "string",
         "required": true,
         "default": "Example Dynamic Platform"
+      },
+      "age": {
+        "title": "Age",
+        "type": "number",
+        "required": true,
+        "default": "12"
       }
     }
   }
