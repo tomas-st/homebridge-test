@@ -18,14 +18,13 @@
   },
   "main": "dist/index.js",
   "scripts": {
+    "test": "echo \"No test specified\"",
     "lint": "eslint src/**.ts --max-warnings=0",
     "watch": "npm run build && npm link && nodemon",
     "build": "rimraf ./dist && tsc",
     "prepublishOnly": "npm run lint && npm run build"
   },
-  "keywords": [
-    "homebridge-plugin"
-  ],
+  "keywords": ["homebridge-plugin"],
   "dependencies": {
     "firebase": "^8.3.2"
   },
