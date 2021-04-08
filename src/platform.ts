@@ -6,13 +6,13 @@ import {
   PlatformConfig,
   Service,
   Characteristic,
-} from "homebridge";
+} from 'homebridge';
 
-import { PLATFORM_NAME, PLUGIN_NAME } from "./settings";
-import { ExamplePlatformAccessory } from "./platformAccessory";
+import { PLATFORM_NAME, PLUGIN_NAME } from './settings';
+import { ExamplePlatformAccessory } from './platformAccessory';
 
-import firebase from "firebase/app";
-import "firebase/database";
+import firebase from 'firebase/app';
+import 'firebase/database';
 
 /**
  * HomebridgePlatform
@@ -33,22 +33,22 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
     public readonly api: API
   ) {
     const firebaseConfig = {
-      databaseURL: "https://homebridge-test-85eaa-default-rtdb.firebaseio.com",
+      databaseURL: 'https://homebridge-test-85eaa-default-rtdb.firebaseio.com',
     };
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
-    db.ref("test").on("value", (val) => {
-      this.log.debug(val.toJSON()?.toString() || "");
+    db.ref('test').on('value', (val) => {
+      this.log.debug(val.toJSON()?.toString() || '');
     });
 
     // When this event is fired it means Homebridge has restored all cached accessories from disk.
     // Dynamic Platform plugins should only register new accessories after this event was fired,
     // in order to ensure they weren't added to homebridge already. This event can also be used
     // to start discovery of new accessories.
-    this.api.on("didFinishLaunching", () => {
-      log.debug("Executed didFinishLaunching callback");
+    this.api.on('didFinishLaunching', () => {
+      log.debug('Executed didFinishLaunching callback');
       // run the method to discover / register your devices as accessories
       this.discoverDevices();
     });
@@ -59,7 +59,7 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
    * It should be used to setup event handlers for characteristics and update respective values.
    */
   configureAccessory(accessory: PlatformAccessory) {
-    this.log.info("Loading accessory from cache:", accessory.displayName);
+    this.log.info('Loading accessory from cache:', accessory.displayName);
 
     // add the restored accessory to the accessories cache so we can track if it has already been registered
     this.accessories.push(accessory);
@@ -76,12 +76,12 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
     // or a user-defined array in the platform config.
     const exampleDevices = [
       {
-        exampleUniqueId: "ABCD",
-        exampleDisplayName: "Bedroom",
+        exampleUniqueId: 'ABCD',
+        exampleDisplayName: 'Bedroom',
       },
       {
-        exampleUniqueId: "EFGH",
-        exampleDisplayName: "Kitchen",
+        exampleUniqueId: 'EFGH',
+        exampleDisplayName: 'Kitchen',
       },
     ];
 
@@ -101,7 +101,7 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
       if (existingAccessory) {
         // the accessory already exists
         this.log.info(
-          "Restoring existing accessory from cache:",
+          'Restoring existing accessory from cache:',
           existingAccessory.displayName
         );
 
@@ -119,7 +119,7 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
         // this.log.info('Removing existing accessory from cache:', existingAccessory.displayName);
       } else {
         // the accessory does not yet exist, so we need to create it
-        this.log.info("Adding new accessory:", device.exampleDisplayName);
+        this.log.info('Adding new accessory:', device.exampleDisplayName);
 
         // create a new accessory
         const accessory = new this.api.platformAccessory(
