@@ -30,7 +30,7 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
   constructor(
     public readonly log: Logger,
     public readonly config: PlatformConfig,
-    public readonly api: API
+    public readonly api: API,
   ) {
     const firebaseConfig = {
       databaseURL: 'https://homebridge-test-85eaa-default-rtdb.firebaseio.com',
@@ -95,14 +95,14 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
       // see if an accessory with the same uuid has already been registered and restored from
       // the cached devices we stored in the `configureAccessory` method above
       const existingAccessory = this.accessories.find(
-        (accessory) => accessory.UUID === uuid
+        (accessory) => accessory.UUID === uuid,
       );
 
       if (existingAccessory) {
         // the accessory already exists
         this.log.info(
           'Restoring existing accessory from cache:',
-          existingAccessory.displayName
+          existingAccessory.displayName,
         );
 
         // if you need to update the accessory.context then you should run `api.updatePlatformAccessories`. eg.:
@@ -124,7 +124,7 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
         // create a new accessory
         const accessory = new this.api.platformAccessory(
           device.exampleDisplayName,
-          uuid
+          uuid,
         );
 
         // store a copy of the device object in the `accessory.context`
