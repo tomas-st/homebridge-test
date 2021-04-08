@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "TomasSTTestPlatform",
   "pluginType": "platform",
   "singular": true,
   "schema": {
