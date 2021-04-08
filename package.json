@@ -1,7 +1,7 @@
 {
   "private": false,
   "displayName": "Tomas-st Test Plugin",
-  "name": "homebridge-tomas-st-test",
+  "name": "@tomasstiler/homebridge-tomas-st-test",
   "version": "1.0.0",
   "description": "A short description about what your plugin does.",
   "license": "Apache-2.0",
