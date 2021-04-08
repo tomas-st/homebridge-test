@@ -2,7 +2,7 @@
   "private": false,
   "displayName": "Tomas-st Test Plugin",
   "name": "@tomasstiler/homebridge-tomas-st-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A homebridge test plugin.",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -27,7 +27,9 @@
     "build": "rimraf ./dist && tsc",
     "prepublishOnly": "npm run lint && npm run build"
   },
-  "keywords": ["homebridge-plugin"],
+  "keywords": [
+    "homebridge-plugin"
+  ],
   "dependencies": {
     "firebase": "^8.3.2"
   },
